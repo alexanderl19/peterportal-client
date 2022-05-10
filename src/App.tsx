@@ -1,61 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect } from "react";
 
-import {
-  BrowserRouter as Router,
-  Switch, Redirect,
-  Route
-} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
-import './App.scss';
-import { Fade } from 'react-bootstrap';
+import { useDispatch } from "react-redux";
+import { actions } from "@liveblocks/redux";
 
-import AppHeader from './component/AppHeader/AppHeader';
-import Footer from './component/Footer/Footer';
-import SearchPage from './pages/SearchPage';
-import CoursePage from './pages/CoursePage';
-import ProfessorPage from './pages/ProfessorPage';
-import ErrorPage from './pages/ErrorPage';
-import RoadmapPage from './pages/RoadmapPage';
-import ZotisticsPage from './pages/ZotisticsPage';
-import AdminPage from './pages/AdminPage';
-import SideBar from './component/SideBar/SideBar';
+import { BrowserRouter as Router } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
+import "./App.scss";
 
-import { useAppSelector } from './store/hooks';
+import RoadmapPage from "./pages/RoadmapPage";
 
 export default function App() {
-  const sidebarOpen = useAppSelector(state => state.ui.sidebarOpen);
-  const [isShown, setIsShown] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      actions.enterRoom("helloworld", {
+        roadmap: {
+          yearPlans: [],
+          activeCourse: null,
+          invalidCourses: [],
+          showTransfer: false,
+          transfers: [],
+          showSearch: false,
+          showAddCourse: false,
+        },
+      })
+    );
+
+    return () => {
+      dispatch(actions.leaveRoom("helloworld"));
+    };
+  }, [dispatch]);
 
   return (
     <Router>
-      <AppHeader />
-      <div className='app-body'>
-        <div className='app-sidebar'>
-          <SideBar></SideBar>
-        </div>
-        <div className='app-content'>
-          <Switch>
-            <Route exact path='/'>
-              <Redirect to='/search/courses' />
-            </Route>
-            <Route path='/search/:index' />
-          </Switch>
-          <Switch>
-            <Route exact path='/'>
-              <Redirect to='/search/courses' />
-            </Route>
-            <Route path='/roadmap' component={RoadmapPage} />
-            <Route path='/zotistics' component={ZotisticsPage} />
-            <Route path='/search/:index' component={SearchPage} />
-            <Route path='/course/:id+' component={CoursePage} />
-            <Route path='/professor/:id' component={ProfessorPage} />
-            <Route path='/admin' component={AdminPage} />
-            <Route component={ErrorPage} />
-          </Switch>
-          <Footer />
-        </div>
+      <div className="app-content">
+        <RoadmapPage />
       </div>
     </Router>
-  )
+  );
 }

@@ -1,19 +1,27 @@
-import { configureStore } from '@reduxjs/toolkit'
-import reviewReducer from './slices/reviewSlice';
-import uiReducer from './slices/uiSlice';
-import popupReducer from './slices/popupSlice';
-import roadmapReducer from './slices/roadmapSlice';
+import { createClient } from "@liveblocks/client";
+import { enhancer } from "@liveblocks/redux";
+
+import { configureStore } from "@reduxjs/toolkit";
+import roadmapReducer from "./slices/roadmapSlice";
+
+// @ts-ignore
+const client = createClient({
+  publicApiKey: process.env.REACT_APP_LIVEBLOCK_PUBLIC_KEY,
+});
 
 export const store = configureStore({
-    reducer: {
-        review: reviewReducer,
-        ui: uiReducer,
-        popup: popupReducer,
-        roadmap: roadmapReducer
-    }
-})
+  reducer: {
+    roadmap: roadmapReducer,
+  },
+  enhancers: [
+    enhancer({
+      client,
+      storageMapping: { roadmap: true },
+    }),
+  ],
+});
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;
 // Inferred type
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch;
