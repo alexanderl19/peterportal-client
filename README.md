@@ -1,58 +1,68 @@
-![petr](https://github.com/icssc-projects/peterportal-public-api/blob/master/public/images/peterportal-banner-logo.png?raw=true)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-PeterPortal is a web application aimed to aid UCI students with course discovery. We consolidate public data available on multiple UCI sources on the application to improve the user experience when planning their course schedule.
+## Available Scripts
 
-🔨 Built with:
+In the project directory, you can run:
 
-* PeterPortal API
-* ExpressJS
-* ReactJS
-* ElasticSearch
-* MongoDB
-* GraphQL
-* Typescript
+### `yarn start`
 
-## Running the project locally
-1. Clone the `PeterPortal` repository to your local machine.
-    
-    > `git clone https://github.com/icssc-projects/peterportal-client`
-    > 
-2. Switch to a branch you will be working on.
-    
-    > `git checkout -b [branch name]`
-    > 
-3. Make sure you have node version 14 or 16
-    1. `node -v`
-4. Open two terminal windows and `cd [local directory of your repo]`.
-    1. Running the client
-        
-        > `cd site`
-        > 
-        - **On initial start**, run `npm install` to install all node dependencies.
-        - Run the development server using `npm start`.
-        - React development server should be running on port 3000 by default.
-    2. Running the server/API
-        
-        > `cd api`
-        > 
-        - **On initial start**, run `npm install` to install all node dependencies.
-        - Rename the 'dev.env' file to '.env'
-        - Run the development server using `npm run dev`.
-        - Express development server should be running on port 5000 by default.
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Our Mission
-🎇 Our mission is to improve the UCI student experience with course planning and encourage student software developers to create open-source applications that are beneficial to the Anteater community.
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-## Where does the data come from?
+### `yarn test`
 
-We consolidate our data directly from official UCI sources such as: UCI Catalogue, UCI Public Records Office, and UCI Webreg. We routinely monitor for updates to ensure you get the most accurate information to serve on your application.
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Bug Report
-🐞 If you encountered any issues or bug, please open an issue @ https://github.com/icssc-projects/peterportal-client/issues/new
+### `yarn build`
 
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Other Disclaimer
-✅ Although we consolidate our data directly from official UCI sources, this application is by all means, not an official UCI tool. We stride to keep our data as accurate as possible with the limited support we have from UCI. Please take that into consideration while using this Website.
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-## Terms & Conditions
-📜 There are no hard policies at the moment for utilizing this tool. However, please refrain from abusing the Website by methods such as: sending excessive amount of requests in a small period of time or purposely looking to exploit the system. This tool is here mainly to assist developers in bringing their idea to life to benefit all UCI students. Please don't ruin it for others! 🙂
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
